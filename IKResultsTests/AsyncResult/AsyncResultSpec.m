@@ -177,10 +177,10 @@ describe(@"AsyncResult", ^{
             __block BOOL outcome = NO;
             
             delayedResult(0.5, YES)
-            .flatMapAsync(^(AsyncResult *result) { return delayedResult(0.5, YES); })
-            .flatMapAsync(^(AsyncResult *result) { return delayedResult(0.5, YES); })
-            .success(^(id value) {
-                outcome = YES;
+            .flatMapAsync(^(NSNumber *result) { return delayedResult(0.5, [result boolValue]); })
+            .flatMapAsync(^(NSNumber *result) { return delayedResult(0.5, [result boolValue]); })
+            .success(^(NSNumber *value) {
+                outcome = [value boolValue];
             }).failure(^(NSError *error) {
                 
             });
@@ -191,8 +191,8 @@ describe(@"AsyncResult", ^{
             __block BOOL outcome = NO;
             
             delayedResult(0.5, YES)
-            .flatMapAsync(^(AsyncResult *result) { return delayedResult(0.5, NO); })
-            .flatMapAsync(^(AsyncResult *result) { _failure(@""); return delayedResult(0.5, YES); })
+            .flatMapAsync(^(id result) { return delayedResult(0.5, NO); })
+            .flatMapAsync(^(id result) { _failure(@""); return delayedResult(0.5, YES); })
             .success(^(id value) {
                 
             }).failure(^(NSError *error) {
