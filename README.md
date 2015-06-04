@@ -233,6 +233,12 @@ There are some other little tricks you can achieve with `AsyncResult` such as tr
 ```
 Here we can see we have easily added a third asynchronous operation *and* we have transformed the value inbetween `asyncTask2:` and `asyncTask3:` with ease!
 
+# Installation
+Install via cocoapods by adding the following to your Podfile
+```
+pod "IKResults", "~>1.0"
+```
+or manually by adding Result.(h|m) and AsyncResult.(h|m) to your project
 
 # The rest..
 Pull Requests are welcome!
