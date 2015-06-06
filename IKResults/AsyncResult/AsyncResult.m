@@ -23,6 +23,14 @@ typedef void(^asyncResultFulfilled)(Result *result);
 
 #define PERFORM_SELECTOR_WITHOUT_WARNINGS(code) _Pragma("clang diagnostic push") _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") code; _Pragma("clang diagnostic pop")
 
+void runOnMainQueueSafely(dispatch_block_t block) {
+    if ([NSThread isMainThread]) {
+        block();
+    } else {
+        dispatch_sync(dispatch_get_main_queue(), block);
+    }
+}
+
 @implementation AsyncResult
 -(instancetype)initWithResult:(Result *)result {
     self = [super init];
@@ -54,7 +62,7 @@ typedef void(^asyncResultFulfilled)(Result *result);
             strongSelf.thenBlock = function;
             
         } else if (function != nil) {
-            dispatch_async(dispatch_get_main_queue(), ^{
+            runOnMainQueueSafely(^{
                 function(strongSelf.result);
             });
         }

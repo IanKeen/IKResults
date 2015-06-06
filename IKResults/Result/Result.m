@@ -14,7 +14,7 @@
 
 #define PERFORM_SELECTOR_WITHOUT_WARNINGS(code) _Pragma("clang diagnostic push") _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") code; _Pragma("clang diagnostic pop")
 
-void runOnMainQueueWithoutDeadlocking(dispatch_block_t block) {
+void runOnMainQueueSafely(dispatch_block_t block) {
     if ([NSThread isMainThread]) {
         block();
     } else {
@@ -117,7 +117,7 @@ flatMapResultFunction flatMapSelector(id target, SEL selector) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         
         if (strongSelf.isSuccess) {
-            runOnMainQueueWithoutDeadlocking(^{
+            runOnMainQueueSafely(^{
                 function(strongSelf.value);
             });
         }
@@ -131,7 +131,7 @@ flatMapResultFunction flatMapSelector(id target, SEL selector) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         
         if (strongSelf.isFailure) {
-            runOnMainQueueWithoutDeadlocking(^{
+            runOnMainQueueSafely(^{
                 function(strongSelf.error);
             });
         }
