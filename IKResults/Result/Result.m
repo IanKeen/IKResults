@@ -6,21 +6,12 @@
 //
 
 #import "Result.h"
+#import "IKResultsCommon.h"
 
 @interface Result ()
 @property (nonatomic, strong) id value;
 @property (nonatomic, strong) NSError *error;
 @end
-
-#define PERFORM_SELECTOR_WITHOUT_WARNINGS(code) _Pragma("clang diagnostic push") _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") code; _Pragma("clang diagnostic pop")
-
-void runOnMainQueueSafely(dispatch_block_t block) {
-    if ([NSThread isMainThread]) {
-        block();
-    } else {
-        dispatch_sync(dispatch_get_main_queue(), block);
-    }
-}
 
 mapResultFunction mapSelector(id target, SEL selector) {
     mapResultFunction function = ^Result *(id value) {

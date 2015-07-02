@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		327A1CAC1B45F567000AD134 /* AsyncResultGroupSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 327A1CAB1B45F567000AD134 /* AsyncResultGroupSpec.m */; };
+		3290C2FF1B43793800C3D0B2 /* AsyncResultGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290C2FE1B43793800C3D0B2 /* AsyncResultGroup.m */; };
 		32F53E4C1B1FB78A00DF6F2F /* AsyncResultSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F53E471B1FB78A00DF6F2F /* AsyncResultSpec.m */; };
 		32F53E4D1B1FB78A00DF6F2F /* ResultSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F53E491B1FB78A00DF6F2F /* ResultSpec.m */; };
 		32F53E4E1B1FB78A00DF6F2F /* ResultFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F53E4B1B1FB78A00DF6F2F /* ResultFunctions.m */; };
@@ -32,6 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		322E4A0F1B44B3E700F0ABB8 /* IKResultsCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKResultsCommon.h; sourceTree = "<group>"; };
+		327A1CAB1B45F567000AD134 /* AsyncResultGroupSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncResultGroupSpec.m; sourceTree = "<group>"; };
+		3290C2FD1B43793800C3D0B2 /* AsyncResultGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncResultGroup.h; sourceTree = "<group>"; };
+		3290C2FE1B43793800C3D0B2 /* AsyncResultGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncResultGroup.m; sourceTree = "<group>"; };
 		32F53E1D1B1FB75800DF6F2F /* IKResults.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IKResults.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F53E361B1FB75800DF6F2F /* IKResultsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IKResultsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F53E3B1B1FB75800DF6F2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				32F53E471B1FB78A00DF6F2F /* AsyncResultSpec.m */,
+				327A1CAB1B45F567000AD134 /* AsyncResultGroupSpec.m */,
 			);
 			path = AsyncResult;
 			sourceTree = "<group>";
@@ -147,6 +154,7 @@
 			children = (
 				32F53E6C1B1FB7DD00DF6F2F /* AsyncResult */,
 				32F53E6F1B1FB7DD00DF6F2F /* Result */,
+				322E4A0F1B44B3E700F0ABB8 /* IKResultsCommon.h */,
 			);
 			path = IKResults;
 			sourceTree = "<group>";
@@ -156,6 +164,8 @@
 			children = (
 				32F53E6D1B1FB7DD00DF6F2F /* AsyncResult.h */,
 				32F53E6E1B1FB7DD00DF6F2F /* AsyncResult.m */,
+				3290C2FD1B43793800C3D0B2 /* AsyncResultGroup.h */,
+				3290C2FE1B43793800C3D0B2 /* AsyncResultGroup.m */,
 			);
 			path = AsyncResult;
 			sourceTree = "<group>";
@@ -333,6 +343,7 @@
 				32F53E851B1FB7DD00DF6F2F /* main.m in Sources */,
 				32F53E801B1FB7DD00DF6F2F /* AppDelegate.m in Sources */,
 				32F53E861B1FB7DD00DF6F2F /* ViewController.m in Sources */,
+				3290C2FF1B43793800C3D0B2 /* AsyncResultGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +353,7 @@
 			files = (
 				32F53E4C1B1FB78A00DF6F2F /* AsyncResultSpec.m in Sources */,
 				32F53E4D1B1FB78A00DF6F2F /* ResultSpec.m in Sources */,
+				327A1CAC1B45F567000AD134 /* AsyncResultGroupSpec.m in Sources */,
 				32F53E4E1B1FB78A00DF6F2F /* ResultFunctions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
