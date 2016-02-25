@@ -61,6 +61,21 @@ typedef void(^asyncResultFulfilled)(Result *result);
         return strongSelf;
     };
 }
+-(AsyncResult *(^)(catchFailureResultFunction))catchFailure {
+    __weak typeof(self) weakSelf = self;
+    return ^AsyncResult *(catchFailureResultFunction function) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        AsyncResult *new = [AsyncResult asyncResult];
+        strongSelf.then(^(Result *result) {
+            if (result.isFailure) {
+                [new fulfill:function(result.error)];
+            } else {
+                [new fulfill:result];
+            }
+        });
+        return new;
+    };
+}
 -(AsyncResult *(^)(resultSuccess))success {
     __weak typeof(self) weakSelf = self;
     return ^AsyncResult *(resultSuccess function) {

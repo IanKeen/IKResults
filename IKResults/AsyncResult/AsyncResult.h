@@ -12,6 +12,7 @@
 
 @class AsyncResult;
 typedef AsyncResult * (^flatMapAsyncResultFunction)(id value);
+typedef Result * (^catchFailureResultFunction)(NSError *error);
 
 /**
  *  A promise-like object that represents the success or failure of an asynchronous operation sometime in the future
@@ -57,6 +58,14 @@ typedef AsyncResult * (^flatMapAsyncResultFunction)(id value);
  *  This should only be used *once* per chain
  */
 @property (nonatomic, strong, readonly) AsyncResult * (^failure)(resultFailure failure);
+
+/**
+ *  A block that is called when a failure is encountered allowing for alteration or error recovery
+ *  success or failure handlers are called as normal depending on the result
+ *
+ *  This should only be used *once* per chain
+ */
+@property (nonatomic, strong, readonly) AsyncResult * (^catchFailure)(catchFailureResultFunction catchFailure);
 
 /**
  *  A block that is called upon fulfillment after either success or failure
